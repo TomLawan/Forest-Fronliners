@@ -388,6 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854122147}
+  - component: {fileID: 854122148}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -411,6 +412,18 @@ Transform:
   - {fileID: 264562291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854122148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854122146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5480e529303b7634ca22da44339cb930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &873801322
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1720000668}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854122148}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1720000668
 MonoBehaviour:
   m_ObjectHideFlags: 0
