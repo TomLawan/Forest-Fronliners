@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5172237623291779443
+--- !u!1 &2423652520414421666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5533054055787882204}
-  - component: {fileID: 5921032190872603743}
-  - component: {fileID: 8311971747015548790}
-  - component: {fileID: 1804643561682271716}
+  - component: {fileID: 9004767064024199468}
+  - component: {fileID: 5585253598763985070}
+  - component: {fileID: -4658208044434828465}
+  - component: {fileID: -5776943533684473587}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5533054055787882204
+--- !u!4 &9004767064024199468
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5172237623291779443}
+  m_GameObject: {fileID: 2423652520414421666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 526.3794, y: 0.4733, z: 548.273}
-  m_LocalScale: {x: 0.2333, y: 0.2333, z: 0.2333}
+  m_LocalPosition: {x: -0.125, y: 1.2250001, z: 0}
+  m_LocalScale: {x: 0.10897886, y: 0.108975, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5921032190872603743
+--- !u!65 &5585253598763985070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423652520414421666}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0389383, y: 1.9308925, z: 0.056621075}
+  m_Center: {x: 0.096805505, y: 0.28900573, z: -0.04535389}
+--- !u!212 &-4658208044434828465
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5172237623291779443}
+  m_GameObject: {fileID: 2423652520414421666}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,47 +96,26 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61c89b77bf08d9d4983a5da0ce264051, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 980c7b5b4c1faba448b90f29646c84b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2.73, y: 2.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8311971747015548790
+--- !u!114 &-5776943533684473587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5172237623291779443}
+  m_GameObject: {fileID: 2423652520414421666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a4fc33d995a4ea4eb0b483bcca9b9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1804643561682271716
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5172237623291779443}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2741996, y: 2.0285568, z: 0.20000002}
-  m_Center: {x: -0.0036943126, y: -0.8643631, z: -0.0000004790343}
