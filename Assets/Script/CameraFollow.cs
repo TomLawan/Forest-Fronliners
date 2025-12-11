@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;          // Player
-    public Vector3 offset;            // Camera position offset
-    public float smoothSpeed = 10f;   // Smoothness ng camera movement
+    public Transform target;           // Player (Kailangan pa rin para sa LookAt)
+    public Vector3 offset = new Vector3(0, 3, -5); // Default offset
+    public float smoothSpeed = 5f;     // Smoothness ng camera movement
+
+    // Ang rotation ay gagawin ng CameraRig (parent)
 
     void LateUpdate()
     {
-        // Ideal camera position
-        Vector3 desiredPosition = target.position + offset;
+        // 1. Aayusin ang position ng camera para makuha ang desired offset
+        // Ang desired position ay ang position ng parent (CameraRig) + ang Local offset
+        Vector3 desiredPosition = transform.parent.position + transform.parent.TransformDirection(offset);
 
-        // Smooth follow
+        // 2. Smooth follow (Lerp)
         Vector3 smoothedPosition = Vector3.Lerp(
             transform.position,
             desiredPosition,
@@ -20,7 +23,8 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = smoothedPosition;
 
-        // Camera always looks at player
+        // 3. Camera always looks at player (LookAt)
+        // Ito ang magbibigay ng vertical adjustment habang nagro-rotate
         transform.LookAt(target);
     }
 }
