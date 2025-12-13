@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 6f;
     public float rotationSpeed = 10f; // Bilis ng pag-ikot ng Player
 
+    [Header("Animation Settings")] 
+    public Animator animator;      // I-drag mo dito ang Animator component
+
     [Header("Component References")]
     public Transform cameraTransform; // I-drag ang CameraRig DITO
     private CharacterController controller;
@@ -30,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         if (cameraTransform == null)
         {
             //Debug.LogError("ERROR: Kailangan i-assign ang Camera Rig sa cameraTransform!");
-            // Optional: Maaari mong hanapin ang Main Camera, pero mas maganda kung ang Rig ang i-assign.
         }
     }
 
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (controller == null || cameraTransform == null) return;
 
         HandleMovementInput();
-        ApplyGravity();
+        ApplyGravity(); 
     }
 
     private void HandleMovementInput()
@@ -49,26 +51,38 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal"); // A/D o Left/Right
         float vertical = Input.GetAxisRaw("Vertical");    // W/S o Up/Down
 
+        // --- DAGDAG: Animation Logic ---
+        // Check kung may pinipindot na keys
+        bool isMoving = (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f);
+
+        // Ipasa ang info sa Animator (kung naka-assign)
+        if (animator != null)
+        {
+            // 1. Walking or Idle?
+            animator.SetBool("IsWalking", isMoving);
+
+            // 2. Harap o Likod? (Blend Tree)
+            // Ipapasa nito ang +1 kung W (Likod) at -1 kung S (Harap)
+            animator.SetFloat("InputY", vertical);
+        }
+        // -------------------------------
+
         // Gawing Vector3 (movement direction sa local plane)
         Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
 
         if (inputDirection.magnitude >= 0.1f)
         {
             // 1. Calculate Target Angle (Relative to Camera)
-            // Kinukuha ang anggulo ng input at idadagdag ang Y rotation ng Camera Rig
             float targetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
 
             // 2. Smooth Turning
-            // Ikinu-curve ang pag-ikot ng Player
             float angle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             // 3. Calculate Final Movement Direction
-            // Gagawin ang movement vector batay sa bagong rotation
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             // 4. Move the Controller
-            // Gumagalaw ang Player (pero walang Y movement, gravity ang bahala dun)
             controller.Move(moveDir.normalized * moveSpeed * Time.deltaTime);
         }
     }
